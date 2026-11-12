@@ -1,3 +1,27 @@
+'''Moreblessing Banda
+    Novemeber 11 2026 
+    API : https://open-meteo.com/en/docs
+    
+    Description : This utility fetches weather data using a set of coordinates from the Open
+    Metro Rest API, It also accepts command-line arguments and creates a request parameter 
+    dictionary. It uses requests.get to make an HTTP and prints out the dats. 
+    
+    
+    How to use this :
+    On terminal 
+        python3 weather.py <Insert_latitude> < insert_longitude>
+        
+    For example it will look like this: 
+        python3 weather.py 45.1004 -60.2148
+        python3 weather.py --help
+
+        
+'''
+
+
+
+
+
 import sys
 import requests
 def display_help():
@@ -40,12 +64,13 @@ def main():
         
     try:
         latitude = float(sys.argv[1])
-        long = float(sys.argv[2])
-        print(f'You entered: Latitude: {latitude}, Longitude: {long}')
+        longitude = float(sys.argv[2])
+        print(f'You entered: Latitude: {latitude}, Longitude: {longitude}')
     except ValueError:
         print("[Error] Please check your  latitude and longitude values")
         display_help()
         sys.exit(1)
+    fetchWeather(latitude, longitude)
             
 if __name__ == "__main__":
     main()
